@@ -5585,4 +5585,41 @@ void gputsx4p (int   x, int   y,int b,int g,int r,char *c){
 		ii++;
 	}
 }
+void gputcx4l (int   x, int   y,int b,int g,int r,char c){
+	char bits;
+	char bit;
+	 int   scrolls;
+	 int   iii=0;
+	 int   ii=0;
+	 int   xx=x;
+	 int   yy=y;
+	 int   aa=0;
+	aa=c*8;
+	for (ii=0;ii<8;ii++){
+		scrolls=128;
+		bits=font8x8[aa];
+		for (iii=0;iii<8;iii++){
+			if ((bits & scrolls)!=0){
+				box(xx,yy,4,2,b,g,r);
+			}
+			xx=xx+4;
+			scrolls=scrolls/2;
+		}
+		xx=x;
+		aa++;
+		yy=yy+4;
+	}
+
+} 
+void gputsx4l (int   x, int   y,int b,int g,int r,char *c){
+	 int   ii=0;
+	 int   xx=x;
+	 int   yy=y;
+	while(c[ii]!=0){
+		gputcx4l(xx,yy,b,g,r,c[ii]);
+		xx=xx+32;
+		ii++;
+	}
+}
+
 
