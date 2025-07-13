@@ -5477,3 +5477,39 @@ void gputsx2 (int   x, int   y,int b,int g,int r,char *c){
 		ii++;
 	}
 }
+void gputcx3 (int   x, int   y,int b,int g,int r,char c){
+	char bits;
+	char bit;
+	 int   scrolls;
+	 int   iii=0;
+	 int   ii=0;
+	 int   xx=x;
+	 int   yy=y;
+	 int   aa=0;
+	aa=c*8;
+	for (ii=0;ii<8;ii++){
+		scrolls=128;
+		bits=font8x8[aa];
+		for (iii=0;iii<8;iii++){
+			if ((bits & scrolls)!=0){
+				box(xx,yy,3,3,b,g,r);
+			}
+			xx=xx+3;
+			scrolls=scrolls/2;
+		}
+		xx=x;
+		aa++;
+		yy=yy+3;
+	}
+
+} 
+void gputsx3 (int   x, int   y,int b,int g,int r,char *c){
+	 int   ii=0;
+	 int   xx=x;
+	 int   yy=y;
+	while(c[ii]!=0){
+		gputcx2(xx,yy,b,g,r,c[ii]);
+		xx=xx+24;
+		ii++;
+	}
+}
