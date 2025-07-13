@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
     // Update the texture with the pixel data
     clears(0,255,255);
     char *c="hello sdl....";
-    gputsx4l(300,300,0,0,0,c);
+    gputsx4c(300,300,0,0,0,c);
 
     
      
