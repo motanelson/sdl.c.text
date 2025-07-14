@@ -5658,6 +5658,17 @@ void gputsx4c (int   x, int   y,int b,int g,int r,char *c){
 		ii++;
 	}
 }
+void polygon(int *poly,int count,int b,int g,int r){
+    int n=0;
+    if (count>4){
+        int x1=poly[count-2];
+        int y1=poly[count-1];
+        int x2=poly[0];
+        int y2=poly[1];
+        line(x1,y1,x2,y2,b,g,r);
+        for(n=0;n<count-2;n=n+2)line(poly[n+0],poly[n+1],poly[n+2],poly[n+3],b,g,r);
+    }
 
+}
 
 
